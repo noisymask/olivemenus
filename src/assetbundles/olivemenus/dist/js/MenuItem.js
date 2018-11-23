@@ -243,7 +243,7 @@ $(document).ready(function() {
                         menuItemNameValue = menuItemNameElement.val(),
                         
                         menuItemEntryIDElement = menuItemElement.find('input[name="item-entry-id"]'),
-                        menuItemCustomURLElement = menuItemElement.find('input[name="custom-url"]'),
+                        menuItemCustomURLElement = menuItemElement.find('> .ui-sortable-handle input[name="custom-url"]'),
 
                         menuItemClassElement = menuItemElement.find('input[name="class"]'),
                         menuItemClassValue = menuItemClassElement.val(),
