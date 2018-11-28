@@ -45,3 +45,17 @@ Some things to do, and ideas for potential features:
 * Release it
 
 Brought to you by [Olive Studio](https://www.olivestudio.net/)
+
+## Events
+
+Modify menu item before rendering. TODO - make MenuItem class
+
+    Event::on(OlivemenusService::class, BeforeMenuItemEvent::BEFORE_MENU_ITEM, function(BeforeMenuItemEvent $e){
+        $menu_item = $e->getMenuItem();
+        
+        // do something here
+
+        $e->setMenuItem($menu_item);
+    });
+
+

@@ -13,6 +13,7 @@ namespace olivestudio\olivemenus\services;
 use olivestudio\olivemenus\models\OlivemenusModel;
 use olivestudio\olivemenus\Olivemenus;
 use olivestudio\olivemenus\records\OlivemenusRecord;
+use olivestudio\olivemenus\events\BeforeMenuItemEvent;
 
 use Craft;
 use craft\base\Component;
@@ -135,7 +136,14 @@ class OlivemenusService extends Component
         }
     }
 
-    private function getMenuItemHTML($menu_item) {
+    private function getMenuItemHTML($menu_item)
+    {
+        $event = new BeforeMenuItemEvent([
+            'menu_item' => $menu_item
+        ]);
+        $this->trigger(BeforeMenuItemEvent::BEFORE_MENU_ITEM, $event);
+        $menu_item = $event->getMenuItem();
+
         $menu_item_url = '';
         $menu_class = '';
         $menu_item_class = 'menu-item';
